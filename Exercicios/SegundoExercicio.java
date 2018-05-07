@@ -1,9 +1,9 @@
 
-package exerciciodeintegracao;
+package com.github.joaopsalgado.integracao.ex2;
 
 import java.io.*;
 
-public class SegundoExercicio {
+public class ex2 {
 
     public static void main(String[] args) throws IOException {
 
