@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-com.github.joaopsalgado.integracao.atvsp1.
+com.github.joaopsalgado.integracao.atvsp1;
 
 import java.io.*;
 import java.io.ObjectOutputStream;
