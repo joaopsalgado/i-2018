@@ -14,11 +14,12 @@ import serealize.Serealize.Dados;
  
 /*  @author JoaoPedroSalgado
 */
-
+/*Criação da classe *\
 public class Serealize{
 
 
     public static void main(String[] args) throws IOException {
+   /*Instanciando a classe Dados e atribuindo valores para os objetos*\     
         Dados dd = new Dados();
         dd.nome = "joao";
         dd.idade = 20;
@@ -26,7 +27,7 @@ public class Serealize{
         gravarDados(dd);
 
     }
-
+/*Criacao da classe Dados*\
     public static class Dados {
         String nome;
         int idade;
@@ -34,7 +35,7 @@ public class Serealize{
     }
 
     private static void gravarDados(Object s) throws IOException {
-      
+      /*Chamar a classe para serealizar os objetos*\
         try (ObjectOutputStream oos = new ObjectOutputStream(new ByteArrayOutputStream())) { 
             oos.writeObject(s);
             oos.close();
