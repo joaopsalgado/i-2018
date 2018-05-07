@@ -1,10 +1,10 @@
 
-package exerciciodeintegracao;
+package com.github.joaopsalgado.integracao.ex1;
 
 import java.io.*;
 
 
-public class PrimeiroExercicio {
+public class Ex1 {
 
     
     
