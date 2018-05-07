@@ -1,5 +1,5 @@
 
-package exerciciodeintegracao;
+package com.github.joaopsalgado.integracao.ex5;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class QuintoExercicio {
+public class ex5 {
 
      public static void main(String[] args) throws FileNotFoundException, IOException {
 
