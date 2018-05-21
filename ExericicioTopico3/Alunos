@@ -1,0 +1,42 @@
+/*
+ * Copyright (c) 2018.
+ * João Pedro Salgado Di Cavalcanti Cunha
+ * Creative Commons Attribution 4.0 International License.
+ */
+package br.ufg.inf.es.integracao.questao1;
+
+import br.ufg.inf.es.integracao.salgadojoaopedro.exerc1.Aluno;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import java.util.List;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+// classe de lista de alunos
+public class Alunos {
+
+    
+   //Cria array de alunos
+    private List<Aluno> alunos;
+
+    //Cria um método de array
+    public List<Aluno> getListaAlunos() {
+        return alunos;
+    }
+
+    //Cria um método de arraylist
+    public void setListaAlunos(Aluno aluno) {
+        this.alunos.add(aluno);
+    }
+
+    void setAlunos(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setName(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void setEmail(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+}
