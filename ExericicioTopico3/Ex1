@@ -1,0 +1,58 @@
+/**
+ * Copyright (c) 2018.
+ * João Pedro Salgado 
+ * Creative Commons Attribution 4.0 International License.
+ */
+package br.ufg.inf.es.integracao.questao1;
+
+import br.ufg.inf.es.integracao.salgadojoaopedro.exerc1.Aluno;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import java.nio.file.Paths;
+
+//Classe recebe o arquivo CSV;
+public class Ex1 {
+
+    private static Path gerarXml;
+
+   //Inicialização do método main.
+    public void main(String[] args) throws IOException, JAXBException {
+        String arquivo = "arquivo.csv";
+        Alunos turma = new Alunos();
+        turma = recuperar(arquivo);
+        arquivo = "arquivo.xml";
+        gerarXml(turma, arquivo);
+    }
+
+    //Método que realiza a conversao dos dados em objetos java.
+    public static Alunos recuperar(String arquivo) throws IOException {
+            Aluno aluno = new Aluno();
+            Alunos listaAlunos = new Alunos();
+            char separaAtributo = ';';
+            gerarXml = Paths.get(arquivo);
+            Charset utf8 = Charset.forName("UTF-8");
+            for (String line : Files.readAllLines(gerarXml, utf8)) {
+                 String[] aln = line.split(String.valueOf(separaAtributo));
+                   aluno.setNome(aln[line.length()-2]);
+                     aluno.setEmail(aln[line.length()-1]);
+                       listaAlunos.setListaAlunos(aluno);
+        }
+           return listaAlunos;
+    }
+
+    // Método que gera um arquivo xml   
+    public static void gerarXml(Alunos turma, String arquivo) throws JAXBException {
+
+            JAXBContext contxt = JAXBContext.newInstance(Alunos.class);
+                Marshaller Mll = contxt.createMarshaller();
+                    Mll.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                        Mll.marshal(turma, new File(arquivo));
+                }
+}
