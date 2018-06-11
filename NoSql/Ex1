@@ -1,0 +1,39 @@
+{
+  "endereco" : {
+    "CEP" : "",
+    "DATA" : {
+      "acuracia" : "",
+      "data" : ""
+    },
+    "bairro" : "",
+    "estado" : "",
+    "linha de endereco" : {
+      "linha" : "",
+      "ordem" : ""
+    },
+    "pais" : ""
+  },
+  "identificador" : {
+    "CTPS" : {
+      "estado" : "",
+      "serie" : ""
+    },
+    "area" : "",
+    "certidao" : {
+      "cartorio" : "",
+      "livro" : "",
+      "termo" : ""
+    },
+    "data" : "",
+    "emissor" : ""
+  },
+  "nome" : {
+    "nome" : "",
+    "sobrenome" : ""
+  },
+  "vinculo" : {
+    "data fim" : "",
+    "data inicio" : "",
+    "relacionamento" : ""
+  }
+}
