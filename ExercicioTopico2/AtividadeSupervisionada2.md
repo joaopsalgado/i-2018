@@ -51,3 +51,4 @@ que não esta definido,e experando um valor nulo.
 
 6.0) 
 [Imagem](https://user-images.githubusercontent.com/19656582/42294683-497ba6a8-7fb9-11e8-8d38-3452c9284fef.png)
+[Imagem](https://user-images.githubusercontent.com/19656582/42294773-151b001a-7fba-11e8-925d-57cb978af99c.PNG)
