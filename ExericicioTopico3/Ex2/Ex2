@@ -1,0 +1,99 @@
+package br.ufg.inf.es.integracao;
+
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * Lista o conteúdo de um documento XML. Logo apó isso a aplicação deverá
+ * disponibilizar uma lista de calçados.
+ 
+public class AS2 {
+
+    public static void main(String[] args) {
+        Local local = new Local();
+        XMLStreamReader arquivo = null;
+        XmlMapper mapper = new XmlMapper();
+
+        try {
+            arquivo = recuperarDados(args[0]);
+            local = carregarObjetos(arquivo);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (XMLStreamException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Método que carregar os objetos.
+     */
+     
+    public static Local carregarObjetos(XMLStreamReader arquivo, XmlMapper mapper) throws
+            XMLStreamException, IOException {
+        Local local = new Local();
+        int aux = arquivo.next();
+        ArrayList<Tenis> tenisAux = new ArrayList<Tenis>();
+        ArrayList<Sapatos> sapatosAux = new ArrayList<Sapatos>();
+        int iTenis = 0;
+        int iSapatos = 0;
+        while (aux != XMLStreamConstants.END_DOCUMENT) {
+            if (aux == XMLStreamConstants.START_ELEMENT) {
+                String calcados = arquivo.getLocalName();
+                if (calcados.equals("tenis")) {
+                    Tenis tenis = mapper.readValue(arquivo, Tenis.class);
+                    tenisAux.add(iTenis, tenis);
+                    iTenis++;
+                } else {
+                    Sapatos sapatos = mapper.readValue(arquivo, Sapatos.class);
+                    sapatosAux.add(iSapatos, sapatos);
+                    iSapatos++;
+                }
+            }
+            aux = arquivo.next();
+        }
+        local.setTenis(tenisAux);
+        local.setSapatos(sapatosAux);
+
+        return local;
+    }
+
+    /**
+     * Recupera Dados.
+     */
+    public static XMLStreamReader recuperarDados(String directory) throws FileNotFoundException, XMLStreamException {
+        if (nomeDiretorio(directory)) {
+            FileInputStream aux = new FileInputStream(directory);
+            XMLInputFactory factory = XMLInputFactory.newFactory();
+            XMLStreamReader arquivo = factory.createXMLStreamReader(aux);
+            return arquivo;
+        } else {
+            throw new IllegalArgumentException("Documento Inválido");
+        }
+    }
+
+    /**
+     * Verifica arquivo Diretorio
+     */
+    private static boolean nomeDiretorio(String file) {
+        if (file.equals(null) || file.trim().isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
+
+}
